@@ -51,4 +51,4 @@ plt.show();
 ```
 # Output
 
-<img src = "">
+<img src = "Screenshot 2024-02-08 111551.png">
