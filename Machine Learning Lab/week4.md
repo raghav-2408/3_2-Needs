@@ -28,7 +28,7 @@ plt.title('Petal')
 Text(0.5, 1.0, 'Petal')
 ```
 
-<img src = "week4-1">
+<img src = "week4-1.png">
 
 ```python
 model=KMeans(n_clusters=3)
@@ -52,7 +52,7 @@ plt.title( 'KMEANS Classfication')
 ```
 
 <img>
-<img src = "week4-2">
+<img src = "week4-2.png">
 ```python
 print(sm.accuracy_score(y,model.labels_))
 sm.confusion_matrix(y,model.labels_)
@@ -96,7 +96,7 @@ plt.title("Naive Bayesian Classification")
 ```
 
 <img>
-<img src = "week4-3">
+<img src = "week4-3.png">
 
 
 ```python
