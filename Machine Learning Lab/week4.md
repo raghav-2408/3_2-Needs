@@ -53,6 +53,7 @@ plt.title( 'KMEANS Classfication')
 
 <img>
 <img src = "week4-2.png">
+
 ```python
 print(sm.accuracy_score(y,model.labels_))
 sm.confusion_matrix(y,model.labels_)
