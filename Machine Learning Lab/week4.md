@@ -95,7 +95,7 @@ plt.title("Naive Bayesian Classification")
  2 2]
 ```
 
-<img>
+
 <img src = "week4-3.png">
 
 
@@ -103,7 +103,7 @@ plt.title("Naive Bayesian Classification")
 print(sm.accuracy_score(y,y_cluster_gmm))
 sm.confusion_matrix(y,y_cluster_gmm)
 ```
-<img>
+
 
 `output`
 ```
