@@ -130,13 +130,3 @@ print(accuracy_score(y_p, y_test))
 ```
 1.0
 ```
-
-```python
-
-```
-
-`output`
-
-```
-
-```
