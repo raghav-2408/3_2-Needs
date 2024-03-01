@@ -12,6 +12,7 @@ byte blockData [16] = {"Electronics-Hub-"};
 byte bufferLen = 18;
 byte readBlockData[18];
 MFRC522::StatusCode status;
+
 void setup() 
 {
   Serial.begin(9600);
@@ -63,6 +64,7 @@ void loop()
    }
    Serial.print("\n");
 }
+
 void WriteDataToBlock(int blockNum, byte blockData[]) 
 {
   status = mfrc522.PCD_Authenticate(MFRC522::PICC_CMD_MF_AUTH_KEY_A, blockNum, &key, &(mfrc522.uid));
@@ -88,6 +90,7 @@ void WriteDataToBlock(int blockNum, byte blockData[])
     Serial.println("Data was written into Block successfully");
   }
  }
+
 void ReadDataFromBlock(int blockNum, byte readBlockData[]) 
 {
    byte status = mfrc522.PCD_Authenticate(MFRC522::PICC_CMD_MF_AUTH_KEY_A, blockNum, &key, &(mfrc522.uid));
@@ -114,6 +117,7 @@ void ReadDataFromBlock(int blockNum, byte readBlockData[])
     Serial.println("Block was read successfully");  
   }
  }
+
 ```
 
 `output`
