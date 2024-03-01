@@ -1,4 +1,4 @@
-# week 4b (RFID writer)
+# Week 4b (RFID Writer)
 
 ```C
 #include <SPI.h>
