@@ -121,6 +121,8 @@ void ReadDataFromBlock(int blockNum, byte readBlockData[])
 ```
 
 // for white card
+
+
 Scan a MIFARE 1K Tag to write data...
 
 **Card Detected**
@@ -136,6 +138,7 @@ Authentication failed for Read: Timeout in communication.
 
 
 // for Key Chain
+
 
 Data in Block:2 --> 
 
