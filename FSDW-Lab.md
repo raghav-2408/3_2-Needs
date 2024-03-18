@@ -1,4 +1,4 @@
-`Not the programs from record`
+`Note : The programs are not exact out of record`
 # Week - 1
 ```html
 <!DOCTYPE html>
