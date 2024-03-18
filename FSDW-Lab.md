@@ -188,3 +188,77 @@
 </body>
 </html>
 ```
+
+# Week - 6
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week - 6</title>
+
+    // Bootstrap CSS *must*
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    // JQuery CDN *must*
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    //Bootstrap JS *must*
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div id = "myCarousel" class="carousel slide">
+            <ol class="carousel-indicators">
+                <li class="item1 active"></li>
+                <li class="item2"></li>
+                <li class="item3"></li>
+            </ol>
+            <div class="carousel-inner" role = "listbox">
+                <div class="item active">
+                    <img src="images.jpeg" alt="" height="90%">
+                </div>
+                <div class="item">
+                    <img src="unnamed.jpg" alt="" height="50%">
+                </div>
+                <div class="item">
+                    <img src="images.jpeg" alt="" height="90%">
+                </div>
+            </div>
+            <a class="left carousel-control" href="#myCarousel" role="button">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Prev</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" role="button">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        //JQuery
+        $(document).ready(function () {
+            $("#myCarousel").carousel();
+            $(".item1").click(function () {
+                $("#myCarousel").carousel(0);
+            })
+            $(".item2").click(function () {
+                $("#myCarousel").carousel(1);
+            })
+            $(".item3").click(function () {
+                $("#myCarousel").carousel(2);
+            })
+            $(".left").click(function () {
+                $("#myCarousel").carousel("prev");
+            })
+            $(".right").click(function () {
+                $("#myCarousel").carousel("next");
+            })
+        });
+    </script>
+</body>
+</html>
+```
