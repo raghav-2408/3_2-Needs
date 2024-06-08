@@ -262,3 +262,164 @@
 </body>
 </html>
 ```
+
+
+# Week 7 and 8
+
+`app.js`
+
+```
+Note that useNewUrlParser and save() doesnot accepts a call back function, instead we can make use of async function and await ! :)) 
+```
+
+```javascript
+const mongoose = require('mongoose');
+const express = require('express');
+const bodyParser = require('body-parser');
+const bcrypt = require('bcrypt');
+const app = express();
+const user = require('./models/user');
+const port = 80;
+mongoose.connect("mongodb://localhost:27017/user");
+app.set("view engine", "pug");
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended : true}));
+
+app.get('/', function(req, res){
+    res.render('index');
+})
+
+app.get('/Login', function(req, res){
+    res.render('Login');
+})
+
+app.get('/Register', function(req, res){
+    res.render('Register');
+})
+
+app.post('/Login', function(req, res){
+    user.findOne({username : req.body.username}, function(err, docs){
+        if(err){
+            console.log(err);
+        }
+        else{
+            if(docs.username == req.body.username){
+                bcrypt.compare(req.body.password, docs.password, function(err, data){
+                    if(err){
+                        console.log(err);
+                    }
+                    if(data){
+                        console.log(data);
+                        res.send("Welcome");
+                    }
+                    else{
+                        res.send("Invalid Password!");
+                    }
+                });
+            }
+        }
+    })
+})
+
+app.post('/Register', async function(req, res){
+    try{
+
+        const newUser = new user();
+        
+        newUser.username = req.body.username;
+        
+        const salt = bcrypt.genSaltSync(10);
+        const hash = bcrypt.hashSync(req.body.password, salt);
+        
+        newUser.password = hash;
+        newUser.age = req.body.age;
+        newUser.mobile = req.body.mobile;
+        
+        const savedUser = await newUser.save(); // Use async/await instead of callback
+        console.log(savedUser);
+        res.redirect("Login")
+    }
+    catch(err){
+        console.log(err);
+    }
+})
+
+app.listen(port, ()=>{
+    console.log(`app is listening at : http://localhost:${port}`);
+})
+```
+
+`removed part`
+
+```
+newUser.save(function(err, res){
+    if(err){
+        console.log(err);
+    }
+    else{
+        console.log(res);
+        res.redirect("Login")
+    }
+})
+```
+
+`index.pug`
+```pug
+html 
+    head 
+        title Login and Register 
+
+    body 
+        div(class = "header")
+            h1 Login and Register 
+            a(href = '/Login') Login
+            a(href = '/Register') Register
+```
+
+`Register.pug`
+
+```pug
+html 
+    head 
+        title Register Page 
+    body 
+        div(class = 'container')
+            h1 Register 
+            include ./index.pug
+            form(action = '/Register' method = "post" align = "center")
+                label(for = "username") Username 
+                input(type = "text" name = "username")
+
+                label(for = "password") Password 
+                input(type = "text" name = "password")
+
+                label(for = "age") Age 
+                input(type = "text" name = "age")
+
+                label(for = "mobile") Mobile 
+                input(type = "number" name = "mobile")
+
+                input(type = "submit" value = "Register")
+```
+
+`Login.pug`
+
+```pug
+html 
+    head 
+        title Login Page 
+    body 
+        div(class = 'container')
+            h1 Login  
+            include ./index.pug
+            form(action = '/Register' method = "post" align = "center")
+                label(for = "username") Username 
+                input(type = "text" name = "username")
+
+                label(for = "password") Password 
+                input(type = "text" name = "password")
+
+                input(type = "submit" value = "Login")
+```
+
+``` run on terminal : node app.js ```
