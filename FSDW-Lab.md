@@ -425,3 +425,8 @@ html
 ```
 
 ``` run on terminal : node app.js ```
+
+
+# Week 10
+
+<img src = "wk10.png">
