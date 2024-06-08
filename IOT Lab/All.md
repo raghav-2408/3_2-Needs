@@ -28,3 +28,28 @@ void loop() {
 }
 ```
 
+# IR Sensor with LED ( Object detection )
+
+```C
+int sensorPin = 2;
+int outputPin = 13;
+
+void setup(){
+  pinMode(sensorPin, INPUT);
+  pinMode(outputPin, OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop(){
+  int sensorValue = digitalRead(sensorPin);
+  Serial.print("Sensor Value : ");
+  Serial.print(sensorValue);
+  delay(1000);
+  if(sensorValue == LOW){
+    digitalWrite(outputPin, HIGH);
+  }
+  else{
+    digitalWrite(outputPin, LOW);
+  }
+}
+```
