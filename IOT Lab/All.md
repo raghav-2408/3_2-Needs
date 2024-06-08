@@ -76,3 +76,48 @@ void loop(){
   delay(1000);
 }
 ```
+
+
+# Week 5(A)
+
+```C
+#include "DHT.h"
+#define DHTTYPE DHT22
+#define DHTPIN 2
+
+DHT dht(DHTPIN, DHTTYPE);
+
+void setup() {
+  Serial.begin(9600);
+  Serial.println(F("DHTxx Test!"));  // Changed to Serial.println for new line
+  dht.begin();
+}
+
+void loop() {
+  float h = dht.readHumidity();
+  float t = dht.readTemperature();
+  float f = dht.readTemperature(true);
+
+  if (isnan(h) || isnan(t) || isnan(f)) {
+    Serial.println("Failed to read the data from DHT sensor");
+    return;  // Exit the loop early if the reading failed
+  }
+
+  float hif = dht.computeHeatIndex(f, h);
+  float hic = dht.computeHeatIndex(t, h, false);
+
+  Serial.print("Humidity : ");
+  Serial.print(h);
+  Serial.print("% Temperature : ");
+  Serial.print(t);
+  Serial.print("°C ");
+  Serial.print(f);
+  Serial.print("°F Heat Index (F): ");
+  Serial.print(hif);
+  Serial.print("°C");
+  Serial.print(hic);
+  Serial.println("°F");
+  delay(2000);  
+}
+```
+
