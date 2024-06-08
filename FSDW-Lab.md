@@ -269,7 +269,9 @@
 `app.js`
 
 ```
-Note that useNewUrlParser and save() doesnot accepts a call back function, instead we can make use of async function and await ! :)) 
+Note :
+1. useNewUrlParser has been depricated and no longer be used.
+2. save() doesnot accepts a call back function, instead we can make use of async function and await ! :)) 
 ```
 
 ```javascript
