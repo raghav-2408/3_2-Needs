@@ -94,6 +94,79 @@
 </html>
 ```
 
+# Week - 3
+
+```
+Commands used :
+>> npm install '@angular/cli'
+>> ng new my-app
+>> cd my-app
+>> ng serve -open
+```
+
+`index.html`
+```html
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Week 3</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/66fed9d98a.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <app-root></app-root>
+</body>
+</html>
+```
+
+`app.component.html`
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Week 3</title>
+</head>
+<body>
+  <div class="container-fluid bg-dark">
+    <nav class="navbar">
+      <ul class="nav">
+        <li class="nav-item">
+          <a href="#" class="nav-link"><i class="fa fa-home mx-2"></i>Home</a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link"><i class="fa fa-address-card mx-2"></i>About</a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link"><i class="fa fa-address-book mx-2"></i>Contact</a>
+        </li>
+
+        <!-- Dropdown -->
+        <li class="dropdown nav-item">
+          <a href="#" class="dropdown-toggle nav-link" aria-expanded="true" data-bs-toggle="dropdown">More</a>
+          <ul class="dropdown-menu bg-dark">
+            <li>
+              <a href="#" class="dropdown-item --bs-dark">Item 1</a>
+            </li>
+            <li>
+              <a href="#" class="dropdown-item">Item 2</a>
+            </li>
+            <li>
+              <a href="#" class="dropdown-item">Item 3</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</body>
+</html>
+```
 # Week - 5
 
 ```html
