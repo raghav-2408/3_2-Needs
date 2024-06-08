@@ -475,8 +475,111 @@ Commands used :
 </html>
 ```
 
+# Week 7
 
-# Week 7 and 8
+`app.js`
+
+```javascript
+const mongoose = require('mongoose');
+const express = require('express');
+const bodyParser = require('body-parser');
+const bcrypt = require('bcrypt');
+const app = express();
+const user = require('./models/user');
+const port = 80;
+mongoose.connect("mongodb://localhost:27017/user");
+app.set("view engine", "pug");
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended : true}));
+
+app.get('/', function(req, res){
+    res.render('index');
+})
+
+app.get('/Login', function(req, res){
+    res.render('Login');
+})
+
+app.post('/Login', function(req, res){
+    user.findOne({username : req.body.username}, function(err, docs){
+        if(err){
+            console.log(err);
+        }
+        else{
+            if(docs.username == req.body.username){
+                bcrypt.compare(req.body.password, docs.password, function(err, data){
+                    if(err){
+                        console.log(err);
+                    }
+                    if(data){
+                        console.log(data);
+                        res.send("Welcome!");
+                    }
+                    else{
+                        res.send("Invalid Password!");
+                    }
+                });
+            }
+        }
+    })
+})
+
+app.listen(port, ()=>{
+    console.log(`app is listening at : http://localhost:${port}`);
+})
+```
+
+`user.js`
+
+```javascript
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+
+const userSchema=new Schema({
+    username : {type:String},
+    password : {type:String},
+    age : {type:Number},
+    mobile : {type:Number}
+    }
+);
+module.exports=mongoose.model("user",userSchema);
+```
+
+`index.pug`
+```pug
+html 
+    head 
+        title Login and Register 
+
+    body 
+        div(class = "header")
+            h1 Login and Register 
+            a(href = '/Login') Login
+            a(href = '/Register') Register
+```
+
+`Login.pug`
+
+```pug
+html 
+    head 
+        title Login Page 
+    body 
+        div(class = 'container')
+            h1 Login  
+            include ./index.pug
+            form(action = '/Register' method = "post" align = "center")
+                label(for = "username") Username 
+                input(type = "text" name = "username")
+
+                label(for = "password") Password 
+                input(type = "text" name = "password")
+
+                input(type = "submit" value = "Login")
+```
+
+
+# Week 8
 
 `app.js`
 
@@ -503,36 +606,8 @@ app.get('/', function(req, res){
     res.render('index');
 })
 
-app.get('/Login', function(req, res){
-    res.render('Login');
-})
-
 app.get('/Register', function(req, res){
     res.render('Register');
-})
-
-app.post('/Login', function(req, res){
-    user.findOne({username : req.body.username}, function(err, docs){
-        if(err){
-            console.log(err);
-        }
-        else{
-            if(docs.username == req.body.username){
-                bcrypt.compare(req.body.password, docs.password, function(err, data){
-                    if(err){
-                        console.log(err);
-                    }
-                    if(data){
-                        console.log(data);
-                        res.send("Welcome");
-                    }
-                    else{
-                        res.send("Invalid Password!");
-                    }
-                });
-            }
-        }
-    })
 })
 
 app.post('/Register', async function(req, res){
@@ -565,7 +640,7 @@ app.listen(port, ()=>{
 
 `removed part`
 
-```
+```javascript
 newUser.save(function(err, res){
     if(err){
         console.log(err);
@@ -575,6 +650,22 @@ newUser.save(function(err, res){
         res.redirect("Login")
     }
 })
+```
+
+`user.js`
+
+```javascript
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+
+const userSchema=new Schema({
+    username : {type:String},
+    password : {type:String},
+    age : {type:Number},
+    mobile : {type:Number}
+    }
+);
+module.exports=mongoose.model("user",userSchema);
 ```
 
 `index.pug`
@@ -616,25 +707,7 @@ html
                 input(type = "submit" value = "Register")
 ```
 
-`Login.pug`
 
-```pug
-html 
-    head 
-        title Login Page 
-    body 
-        div(class = 'container')
-            h1 Login  
-            include ./index.pug
-            form(action = '/Register' method = "post" align = "center")
-                label(for = "username") Username 
-                input(type = "text" name = "username")
-
-                label(for = "password") Password 
-                input(type = "text" name = "password")
-
-                input(type = "submit" value = "Login")
-```
 
 ``` run on terminal : node app.js ```
 
