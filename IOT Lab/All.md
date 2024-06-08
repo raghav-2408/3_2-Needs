@@ -53,3 +53,26 @@ void loop(){
   }
 }
 ```
+
+# Transfer sensor data to smartphone using Bluetooth on Arduino
+
+```C
+const int irPin = 13;
+
+void setup(){
+  pinMode(irPin, INPUT);
+  Serial.begin(9600);
+} 
+
+void loop(){
+  int value = digitalRead(irPin);
+  Serial.print(value);
+  if (value == 0){
+    Serial.print("Obstacle Detected!");
+  }
+  else{
+    Serial.print("No Obstacle Detected !");
+  }
+  delay(1000);
+}
+```
