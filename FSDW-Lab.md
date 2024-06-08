@@ -1,4 +1,4 @@
-`Note : The programs are not exact out of record`
+`Note : The programs are not exact out of lab manual`
 # Week - 1
 ```html
 <!DOCTYPE html>
@@ -167,6 +167,145 @@ Commands used :
 </body>
 </html>
 ```
+
+# Week - 4
+
+`index.html`
+
+``html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moving Cars</title>
+    <link rel="stylesheet" href="style.css">
+    <body>
+    <div class="container">
+        <div class="container">
+            <div class="road"></div>
+              <div class="road-sideview"></div>
+                <div class="moving-car">
+                    <img src="bmw.png" alt="moving-car">
+                </div>
+                <div class="car-wheel">
+                    <img src="wheel.png" alt="moving car wheel" 
+                         class="car-back-wheel">
+                    <img src="wheel.png" alt="moving car wheel" 
+                         class="car-front-wheel">
+                </div>
+              </div>
+            </div>
+       </div>
+    </div>
+    </body>
+    </html>
+```
+
+`style.css`
+```css
+* {
+    margin: 0;
+    padding: 0;
+}
+.container {
+    height: 50vh;
+    width: 100%;
+    background-image: url(sky1.jpg);
+    background-size:cover;
+    background-position: center;
+    position: relative;
+    overflow-x: hidden;
+} 
+.road {
+    height: 200px;
+    width: 1000%;
+    display:block;
+    background-image: url(road.jpg);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    background-repeat: repeat-x;
+    animation: road 5s linear infinite;
+}
+@keyframes road {
+    100% {
+        transform: translateX(-3500px)  
+    }
+}
+.road-sideview {
+    height: 130px;
+    width: 1000%;
+    background-image: url(city.png);
+    position: absolute;
+    bottom: 200px;
+    left: 0;
+    right: 0;
+    display: block;
+    z-index: 1;
+    background-repeat: repeat-x;
+    animation: road-sideview 5s linear infinite;
+} 
+
+@keyframes road-sideview {
+    100% {
+        transform: translateX(-1500px);
+    }
+}
+.moving-car {
+    width: 500px;
+    left: 50%;
+    bottom: 50px;
+    transform: translateX(-50%);
+    position: absolute;
+    z-index: 1;
+}
+.moving-car img {
+    width: 90%;
+    animation: moving-car 1s linear infinite;
+}
+@keyframes moving-car {
+    100% {
+        transform: translateY(-1px);
+    }
+    50% {
+        transform: translateY(1px);
+    }
+    0% {
+        transform: translateY(-1px);
+    }
+}
+.car-wheel {
+    left: 50%;
+    bottom: 198px;
+    transform: translateX(-50%);
+    position: absolute;
+    z-index: 2;
+}
+.car-wheel img {
+    width: 65px;
+    height: 65px;   
+    animation: car-wheel .5s linear infinite;
+}
+@keyframes car-wheel {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+.car-back-wheel {
+    left: -170px;
+    position: absolute;
+}
+.car-front-wheel {
+    left: 80px;
+    position: absolute;
+}
+```
+
+
 # Week - 5
 
 ```html
