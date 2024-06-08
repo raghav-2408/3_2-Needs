@@ -77,6 +77,49 @@ void loop(){
 }
 ```
 
+# Week 4(A)
+
+```C
+#include <SPI.h>
+#include <MFRC522.h>
+#define SS_PIN 10
+#define RST_PIN A5
+MFRC522 rfid(SS_PIN, RST_PIN);
+MFRC522 :: MIFARE_Key key;
+byte nuidPICC[4];
+
+void setup(){
+  Serial.begin(9600);
+  SPI.begin();
+  rfid.PCD_Init();
+  for(byte i=0; i<6; i++){
+    key.keyByte[i] = 0xFF;
+  }
+}
+
+void loop(){
+  if(!rfid.PICC_IsNewCardPresent()){
+    return;
+  }
+  if(!rfid.PICC_ReadCardSerial()){
+    return;
+  }
+  for(byte i=0; i<4; i++){
+    nuidPICC[i] = rfid.uid.uidByte[i];
+  }
+  printHex(rfid.uid.uidByte, rfid.uid.size);
+  rfid.PICC_HaltA();
+  rfid.PCD_StopCrypto1();
+}
+
+void printHex(byte *buffer, byte bufferSize){  
+  for(byte i=0; i<bufferSize; i++){
+    Serial.print(buffer[i] < 0x10 ? "10" : " ");
+    Serial.print(buffer[i], HEX);
+  }
+}
+```
+
 
 # Week 5(A)
 
@@ -89,7 +132,7 @@ DHT dht(DHTPIN, DHTTYPE);
 
 void setup() {
   Serial.begin(9600);
-  Serial.println(F("DHTxx Test!"));  // Changed to Serial.println for new line
+  Serial.println(F("DHTxx Test!"));  
   dht.begin();
 }
 
@@ -100,7 +143,7 @@ void loop() {
 
   if (isnan(h) || isnan(t) || isnan(f)) {
     Serial.println("Failed to read the data from DHT sensor");
-    return;  // Exit the loop early if the reading failed
+    return;  
   }
 
   float hif = dht.computeHeatIndex(f, h);
@@ -120,4 +163,3 @@ void loop() {
   delay(2000);  
 }
 ```
-
