@@ -172,7 +172,7 @@ Commands used :
 
 `index.html`
 
-``html
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
