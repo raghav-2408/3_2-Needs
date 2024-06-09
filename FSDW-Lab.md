@@ -403,7 +403,7 @@ Commands used :
 
 # Week - 6
 
-# Note : jQuery CDN link must be placed before Bootstrap.js, not after it, that for minimizing the chances of encountering errors like TypeError: $(...).carousel is not a function.
+# Note : jQuery CDN link must be placed before Bootstrap.js, not after it, for minimizing the chances of encountering errors like TypeError: $(...).carousel is not a function.
 
 ```html
 <!DOCTYPE html>
