@@ -1,3 +1,4 @@
+```css
 * {
     margin: 0;
     padding: 0;
@@ -74,7 +75,7 @@
         transform: translateX(-3500px)
     }
 }
-
+```
 @keyframes side-road {
     100% {
         transform: translateX(-1500px)
