@@ -570,7 +570,7 @@ html
         div(class = 'container')
             h1 Login  
             include ./index.pug
-            form(action = '/Register' method = "post" align = "center")
+            form(action = '/Login' method = "post" align = "center")
                 label(for = "username") Username 
                 input(type = "text" name = "username")
 
