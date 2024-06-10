@@ -64,32 +64,37 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <nav class="navbar bg-dark ">
-            <ul class="nav">
-                <li class="nav-item">
-                    <a href="" class="nav-link">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a href="" class="nav-link">About</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a href="" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>
-                    <ul class="dropdown-menu">
-                        <li >
-                            <a href="" class="dropdown-item text-dark">Item 1</a>
-                        </li>
-                        <li >
-                            <a href="" class="dropdown-item text-dark">Item 2</a>
-                        </li>
-                        <li >
-                            <a href="" class="dropdown-item text-dark">Item 3</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
-    </div>
+     <div class="container-fluid bg-dark">
+    <nav class="navbar">
+      <ul class="nav">
+        <li class="nav-item">
+          <a href="#" class="nav-link"><i class="fa fa-home mx-2"></i>Home</a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link"><i class="fa fa-address-card mx-2"></i>About</a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link"><i class="fa fa-address-book mx-2"></i>Contact</a>
+        </li>
+
+        <!-- Dropdown -->
+        <li class="dropdown nav-item">
+          <a href="#" class="dropdown-toggle nav-link" aria-expanded="true" data-bs-toggle="dropdown">More</a>
+          <ul class="dropdown-menu bg-dark">
+            <li>
+              <a href="#" class="dropdown-item --bs-dark">Item 1</a>
+            </li>
+            <li>
+              <a href="#" class="dropdown-item">Item 2</a>
+            </li>
+            <li>
+              <a href="#" class="dropdown-item">Item 3</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
 </body>
 </html>
 ```
