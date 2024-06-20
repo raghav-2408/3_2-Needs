@@ -101,3 +101,44 @@ function error(error) {
     console.log('Error getting geolocation: ' + error.message);
 }
 ```
+
+# CSS Navbar 
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        nav{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 50px;
+            background-color: black;
+        }
+        nav ul li{
+            padding: 40px;
+            color: white;
+            display: inline;
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li>Home</li>
+            <li>About</li>
+            <li>Contact</li>
+        </ul>
+    </nav>
+</body>
+</html>
+```
