@@ -686,3 +686,12 @@ function error(error) {
 </script>
 </html>
 ```
+
+# Requesting for a URL using Middleware : 
+
+```javascript
+app.use(function(req, res, next) {
+    console.log('Request URL:', req.url);
+    next();
+});
+```
