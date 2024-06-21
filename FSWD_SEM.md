@@ -271,3 +271,59 @@ function error(error) {
 </body>
 </html>
 ```
+
+
+# jQuery Events and Selectors 
+
+```html
+<html>
+<head>
+    <title>jQuery Selectors and Mouse Events</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>jQuery Selectors and Mouse Events</h1>
+    
+    <!-- Selectors Example -->
+    <p>This is a paragraph.</p>
+    <div>
+        <p>This is another paragraph.</p>
+        <p>This is another descendent of div</p>
+    </div>
+    <p id="para3">This is a third paragraph.</p>
+    <p class="myClass">This is a paragraph with class "myClass".</p>
+    
+    <!-- Mouse Events Example -->
+    <button id="btnClick" class="button">Click me</button>
+    <button id="btnDblClick" class="button">Double-click me</button>
+    <button id="btnHover" class="button">Hover over me</button>
+    
+    <script>
+        // jQuery document ready function
+        $(document).ready(function() {
+            // Selectors
+            $('div p').css('color', 'violet'); // Change color of all <p> elements
+            $('#para3').css('font-weight', 'bold'); // Change font weight of <p> with id="para3"
+            $('.myClass').css('background-color', 'yellow'); // Change background color of elements with class "myClass"
+            
+            // Mouse Events
+            $('#btnClick').click(function() {
+                alert('Button clicked');
+            });
+            
+            $('#btnDblClick').dblclick(function() {
+                alert('Button double-clicked');
+            });
+            
+            $('#btnHover').mouseenter(function() {
+                $(this).css('background-color', 'red');
+            })
+
+            $('#btnHover').mouseleave(function() {
+                $(this).css('background-color', '#007bff');
+            });
+        });
+    </script>
+</body>
+</html>
+```
