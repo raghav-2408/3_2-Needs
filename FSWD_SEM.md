@@ -538,3 +538,53 @@ function error(error) {
 </script>
 </html>
 ```
+
+
+# Traversing in jQuery
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <li class="item1">Item1</li>
+        <li class="item2">Item2</li>
+        <li class="item3">Item3</li>
+    </div>
+</body>
+<script>
+    $(document).ready(function(){
+        let e1 = $('.container').parent()
+        console.log(e1.prop('tagName')) // container ka maa ya baap : BODY 
+
+        let e2 = $('.item1').next()
+        console.log(e2.text()) // item 1 ka next Item2 
+
+        let e3 = $('.item2').prev()
+        console.log(e3.text()) // item2 ka previous Item1
+
+        let e4 = $('div').children()
+        console.log(e4.prop("tagName")); // div ka children : LI
+
+        let first = $('div').children().first()
+        console.log(first.text()) // div ke pehle bacche ka naam : Item1
+
+        let last = $('div').children().last()
+        console.log(last.text()) // div ke aakri bacche ka naam : Item3
+
+        let all = $('div').find('li')
+        console.log(all.text()) // div ke saare bacchon ka naam : Item1, Item2, Item3
+
+    })
+
+
+</script>
+</html>
+```
