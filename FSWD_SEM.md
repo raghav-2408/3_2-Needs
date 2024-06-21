@@ -369,3 +369,96 @@ function error(error) {
 </body>
 </html>
 ```
+
+
+# jQuery Effects and Animations :
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Effects and Animations in jQuery</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        #box {
+            width: 200px;
+            height: 200px;
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            line-height: 200px;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Effects and Animations in jQuery</h1>
+
+    <button id="btnShow">Show</button>
+    <button id="btnHide">Hide</button>
+    <button id="btnToggle">Toggle</button>
+    <button id="btnFadeIn">Fade In</button>
+    <button id="btnFadeOut">Fade Out</button>
+    <button id="btnFadeToggle">Fade Toggle</button>
+    <button id="btnSlideDown">Slide Down</button>
+    <button id="btnSlideUp">Slide Up</button>
+    <button id="btnSlideToggle">Slide Toggle</button>
+    <button id="btnAnimate">Animate</button>
+
+    <div id="box">Box</div>
+
+    <script>
+        $(document).ready(function() {
+            $('#btnShow').click(function() {
+                $('#box').show();
+            });
+
+            $('#btnHide').click(function() {
+                $('#box').hide();
+            });
+
+            $('#btnToggle').click(function() {
+                $('#box').toggle();
+            });
+
+            $('#btnFadeIn').click(function() {
+                $('#box').fadeIn();
+            });
+
+            $('#btnFadeOut').click(function() {
+                $('#box').fadeOut();
+            });
+
+            $('#btnFadeToggle').click(function() {
+                $('#box').fadeToggle();
+            });
+
+            $('#btnSlideDown').click(function() {
+                $('#box').slideDown();
+            });
+
+            $('#btnSlideUp').click(function() {
+                $('#box').slideUp();
+            });
+
+            $('#btnSlideToggle').click(function() {
+                $('#box').slideToggle();
+            });
+
+            $('#btnAnimate').click(function() {
+                $('#box').animate({
+                    opacity: 0.5,
+                    width: '200px',
+                    height: '200px',
+                    backgroundColor: 'red'
+                }, 1000, 'easeOutQuad');
+            });
+        });
+    </script>
+
+</body>
+</html>
+```
