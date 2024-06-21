@@ -237,3 +237,37 @@ function error(error) {
 
 </html>
 ```
+
+# AJAX to Show user details
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AJAX Example</title>
+    <script>
+        function loadUserDetails() {
+            let userId = document.getElementById('userId').value;
+            let xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    let user = JSON.parse(xhr.responseText);
+                    document.getElementById('userDetails').innerHTML =
+                        'Name: ' + user.name + '<br>' +
+                        'Email: ' + user.email + '<br>' +
+                        'Phone: ' + user.phone;
+                }
+            };
+            xhr.open('GET', 'https://jsonplaceholder.typicode.com/users/' + userId, true);
+            xhr.send();
+        }
+    </script>
+</head>
+<body>
+    <h1>Fetch User Details</h1>
+    <input type="text" id="userId" placeholder="Enter User ID">
+    <button onclick="loadUserDetails()">Get User Details</button>
+    <div id="userDetails"></div>
+</body>
+</html>
+```
