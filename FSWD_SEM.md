@@ -462,3 +462,42 @@ function error(error) {
 </body>
 </html>
 ```
+
+
+# Only animation part
+
+```html
+<html lang="en">
+
+<head>
+    <title>Simple Animation Example with jQuery</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        #box {
+            width: 200px;
+            height: 200px;
+            background-color: #007bff;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <button id="btnAnimate">Animate</button>
+    <div id="box"></div>
+
+    <script>
+        $(document).ready(function () {
+            $('#btnAnimate').click(function () {
+                $('#box').animate({
+                    width: 'toggle'
+                });
+            });
+        });
+    </script>
+
+</body>
+
+</html>
+```
