@@ -327,3 +327,45 @@ function error(error) {
 </body>
 </html>
 ```
+
+# DOM Manipulation 
+### Document Object Model
+
+```html
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Manipulation Example</title>
+</head>
+<body>
+    <h1>DOM Manipulation Example</h1>
+
+    <p id="demo">This is a paragraph.</p>
+
+    <button onclick="changeText()">Change Text</button>
+    <button onclick="changeStyle()">Change Style</button>
+    <button onclick="addHighlight()">Add Highlight</button>
+    <button onclick="removeHighlight()">Remove Highlight</button>
+
+    <script>
+        function changeText() {
+            document.getElementById('demo').innerHTML = 'Text changed!';
+        }
+
+        function changeStyle() {
+            document.getElementById('demo').style.color = 'blue';
+            document.getElementById('demo').style.fontSize = '20px';
+        }
+        
+        function addHighlight() {
+            document.getElementById('demo').style.backgroundColor = 'yellow';
+        }
+        
+        function removeHighlight() {
+            document.getElementById('demo').style.backgroundColor = 'white';
+        }
+    </script>
+</body>
+</html>
+```
