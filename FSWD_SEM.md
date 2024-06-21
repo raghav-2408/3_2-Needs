@@ -628,22 +628,27 @@ function error(error) {
     <script>
         $(document).ready(function() {
             // Basic Filters
-            var firstItem = $('li:first');
-            console.log('First item:', firstItem.text());
+            var e1 = $('li:first');
+            console.log('First item:', e1.text());
 
-            var oddItems = $('li:odd');
-            console.log('Odd items:', oddItems.text());
+            // considers indices as (even / odd) confuse ni hona so output :item{Hello, 3, 5 }
+            let even = $('li:even');
+            console.log("Even Items : ", even.text());
+
+            var e2 = $('li:odd');
+            console.log('Odd items:', e2.text());
 
             // Content Filters
-            var itemsContainingHello = $('li:contains("Hello")');
-            console.log('Items containing "Hello":', itemsContainingHello.text());
+            var e3 = $('li:contains("Hello")');
+            console.log('Items containing "Hello":', e3.text());
 
-            var itemsWithSpan = $('li:has(span)');
-            console.log('Items with <span> element:', itemsWithSpan.text());
+            var e4 = $('ul:has(li)');
+            console.log('Items with <li> element:', e4.text());
         });
     </script>
 
 </body>
 </html>
+
 
 ```
