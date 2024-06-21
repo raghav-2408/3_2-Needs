@@ -175,7 +175,7 @@ function error(error) {
 
 # Events
 
-```javascript
+```html
 <!DOCTYPE html>
 <html lang="en">
 
