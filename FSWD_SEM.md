@@ -588,3 +588,62 @@ function error(error) {
 </script>
 </html>
 ```
+
+# Filtering :
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filtering Elements in jQuery</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .list-item {
+            margin: 5px;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+        }
+        .selected {
+            background-color: #007bff;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Filtering Elements in jQuery</h1>
+
+    <ul id="myList">
+        <li class="list-item">Hello</li>
+        <li class="list-item">Item 2</li>
+        <li class="list-item">Item 3</li>
+        <li class="list-item">Item 4</li>
+        <li class="list-item">Item 5</li>
+        <li class="list-item">Item 6</li>
+    </ul>
+
+    <script>
+        $(document).ready(function() {
+            // Basic Filters
+            var firstItem = $('li:first');
+            console.log('First item:', firstItem.text());
+
+            var oddItems = $('li:odd');
+            console.log('Odd items:', oddItems.text());
+
+            // Content Filters
+            var itemsContainingHello = $('li:contains("Hello")');
+            console.log('Items containing "Hello":', itemsContainingHello.text());
+
+            var itemsWithSpan = $('li:has(span)');
+            console.log('Items with <span> element:', itemsWithSpan.text());
+        });
+    </script>
+
+</body>
+</html>
+
+```
