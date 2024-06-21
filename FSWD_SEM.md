@@ -171,3 +171,69 @@ function error(error) {
 ```
 
 <img src = "Screenshot 2024-06-20 232109.png">
+
+
+# Events
+
+```javascript
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn">click</button>
+
+    <button id="btn1">click</button>
+
+    <input type="text" id="inp">
+</body>
+<script>
+    let btn = document.getElementById('btn');
+    btn.addEventListener('click', () => {
+        alert("Clicked")
+    })
+
+
+    // let btn = document.getElementById('btn');
+    // btn.addEventListener('dblclick', () => {
+    //     alert("Double Clicked")
+    // })
+
+
+    // let btn1 = document.getElementById('btn1');
+    // btn1.addEventListener('mousemove', (e) => {
+    //     console.log(e.clientX, e.clientY)
+    //})
+    
+
+    let btn1 = document.getElementById('btn1');
+    btn1.addEventListener('mouseover', (e) => {
+        alert("Mouse hover")
+    })
+
+
+    // let inp = document.getElementById('inp');
+    // inp.addEventListener('keydown', () => {
+    //     alert("Key down Pressed")
+    // })
+
+
+    let inp = document.getElementById('inp');
+    inp.addEventListener('keyup', () => {
+        alert("Key up Pressed")
+    })
+
+
+    // let inp = document.getElementById('inp');
+    // inp.addEventListener('keypress', () => {
+    //     alert("Key Pressed")
+    // })
+</script>
+
+</html>
+```
