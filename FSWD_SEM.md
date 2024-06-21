@@ -650,3 +650,39 @@ function error(error) {
 </body>
 </html>
 ```
+
+# Template Engine :
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@4.7.7/dist/handlebars.min.js"></script>
+
+    <title>Document</title>
+    <script id = "main" type = "text">
+        <h1>{{name}}</h1>
+
+    </script>
+</head>
+<body>
+    <div id = "body"></div>
+</body>
+<script>
+    let context = {
+        name : prompt("Enter your name : ")
+    }
+
+    // take the template source
+    let src = document.getElementById('main').innerHTML;
+    let temp = Handlebars.compile(src);
+
+
+    let html = temp(context);
+
+    document.getElementById('body').innerHTML = html;
+</script>
+</html>
+```
